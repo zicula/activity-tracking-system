@@ -1165,3 +1165,463 @@ document.addEventListener('DOMContentLoaded', () => {
 │ └─────────────────────────────────────────────────────────────────────────────┘ │
 └─────────────────────────────────────────────────────────────────────────────────┘
 ```
+
+---
+
+## 9. Multi-Dimensional User Behavior Tracking Dashboard
+
+### 🔍 Advanced User Search & Timeline Analysis
+
+#### User Behavior Search Dashboard
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                    🔍 ADVANCED USER BEHAVIOR SEARCH & ANALYSIS                 │
+│                                วันที่: 23 กรกฎาคม 2025                           │
+└─────────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                              🔎 Search & Filter Controls                       │
+│                                                                                 │
+│ 👤 User Search: [USR001                 ▼] 📅 Date Range: [22/07-23/07    ▼]  │
+│                                                                                 │
+│ 🕐 Time Period: [ ● Last 24h  ○ Last 7d  ○ Last 30d  ○ Custom Range ]        │
+│                                                                                 │
+│ 📊 Activity Types:                                                             │
+│ [✓] Database Operations  [✓] Document Access   [✓] Module Navigation           │
+│ [✓] Approval Actions    [✓] Authentication     [✓] System Events              │
+│                                                                                 │
+│ 🎯 Focus Areas:                                                                │
+│ [✓] High-Impact Actions  [✓] Sensitive Data    [✓] Performance Issues         │
+│ [✓] Security Events     [✓] Anomaly Detection [✓] Collaboration               │
+│                                                                                 │
+│ 🔍 Search: [database query performance          ] [🔍 Search] [📊 Analyze]    │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+#### Multi-Dimensional Timeline Dashboard
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                      📈 MULTI-DIMENSIONAL USER BEHAVIOR TIMELINE               │
+│                        USR001 - นาย สมชาย ใจดี | 22-23 กรกฎาคม 2025             │
+└─────────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                           🕐 Interactive Timeline View                         │
+│                                                                                 │
+│ ╔══════════════════════════════════════════════════════════════════════════════╗ │
+│ ║  22 กค 2025                           │                  23 กค 2025          ║ │
+│ ║  08:00  10:00  12:00  14:00  16:00   │   08:00  10:00  12:00  14:00  16:00  ║ │
+│ ║    │     │     │     │     │         │     │     │     │     │     │        ║ │
+│ ║    ▼─────▼─────▼─────▼─────▼─────────┼─────▼─────▼─────▼─────▼─────▼        ║ │
+│ ║                                      │                                      ║ │
+│ ║ 💻 LOGIN ───► 📊 DASH ───► 👥 HR ───┼───► 📊 DASH ───► 👥 HR ───► 🚪 LOGOUT ║ │
+│ ║   08:15       08:30      09:15      │     08:30      09:00               ║ │
+│ ║     │           │          │        │       │          │                 ║ │
+│ ║     ▼           ▼          ▼        │       ▼          ▼                 ║ │
+│ ║  🔐 AUTH     📊 VIEW     🔍 QUERY   │    🔐 AUTH    🗄️  DB_ACCESS        ║ │
+│ ║              METRICS      USERS     │               HEAVY_LOAD          ║ │
+│ ╚══════════════════════════════════════════════════════════════════════════════╝ │
+│                                                                                 │
+│ 🔍 Timeline Controls: [ ◄ ] [2x] [1x] [0.5x] [ ► ] | Zoom: [+] [-] [🔍 Focus] │
+└─────────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                          🗄️  DATABASE ACTIVITY HIGHLIGHTS                      │
+│                                                                                 │
+│ ╔══════════════════════════════════════════════════════════════════════════════╗ │
+│ ║  📅 23 กรกฎาคม 2025 - Database Operations Timeline                          ║ │
+│ ║                                                                              ║ │
+│ ║  08:30:15 🔍 SELECT * FROM USER_AUTH_LOGS WHERE login_time > '2025-07-22'   ║ │
+│ ║           ⚡ Response: 0.234s | Rows: 2,847 | 🟢 Normal                     ║ │
+│ ║                                                                              ║ │
+│ ║  08:45:22 🔍 SELECT user_id, module_name FROM MODULE_USAGE_LOGS             ║ │
+│ ║           ⚡ Response: 0.156s | Rows: 15,847 | 🟢 Fast                      ║ │
+│ ║                                                                              ║ │
+│ ║  09:15:33 �� Complex JOIN Query - Employee Performance Analysis             ║ │
+│ ║           SELECT e.employee_id, e.name, d.access_count,                     ║ │
+│ ║           a.approval_count, m.usage_hours                                   ║ │
+│ ║           FROM employees e                                                   ║ │
+│ ║           LEFT JOIN document_access_summary d ON e.user_id = d.user_id      ║ │
+│ ║           LEFT JOIN approval_summary a ON e.user_id = a.user_id             ║ │
+│ ║           LEFT JOIN module_usage_summary m ON e.user_id = m.user_id         ║ │
+│ ║           WHERE e.department = 'HR' AND d.access_date >= '2025-07-01'       ║ │
+│ ║           ⚠️  Response: 2.847s | Rows: 1,247 | 🟡 Slow (Performance Alert) ║ │
+│ ║                                                                              ║ │
+│ ║  10:22:45 💾 INSERT INTO USER_DETAILED_ACTIONS (batch insert)               ║ │
+│ ║           ⚡ 5,000 records inserted | Response: 1.234s | 🟢 Good             ║ │
+│ ║                                                                              ║ │
+│ ║  11:18:12 🔍 SELECT sensitive data query                                    ║ │
+│ ║           SELECT salary, bonus FROM employee_compensation                   ║ │
+│ ║           WHERE employee_id IN (SELECT user_id FROM hr_managers)            ║ │
+│ ║           🔒 Security: Sensitive data access logged                         ║ │
+│ ║           ⚡ Response: 0.445s | Rows: 24 | 🔐 Secured                       ║ │
+│ ║                                                                              ║ │
+│ ║  13:45:18 📊 Analytics Query - Real-time Dashboard                          ║ │
+│ ║           SELECT COUNT(*) as active_users,                                  ║ │
+│ ║           AVG(session_duration) as avg_duration                             ║ │
+│ ║           FROM real_time_metrics                                            ║ │
+│ ║           WHERE metric_time >= SYSTIMESTAMP - INTERVAL '1' HOUR             ║ │
+│ ║           ⚡ Response: 0.089s | 🚀 Excellent (Optimized)                    ║ │
+│ ║                                                                              ║ │
+│ ║  15:22:33 🔄 UPDATE batch operation                                         ║ │
+│ ║           UPDATE user_behavior_patterns SET confidence_score = 0.95         ║ │
+│ ║           WHERE pattern_type = 'DAILY' AND user_id = 'USR001'               ║ │
+│ ║           ⚡ Response: 0.156s | Rows affected: 1 | 🟢 Success               ║ │
+│ ╚══════════════════════════════════════════════════════════════════════════════╝ │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+#### Behavioral Pattern Analysis Dashboard
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                        🧠 BEHAVIORAL PATTERN ANALYSIS                          │
+│                                                                                 │
+│ ╔══════════════════════════════════════════════════════════════════════════════╗ │
+│ ║                            📊 Pattern Recognition                           ║ │
+│ ║                                                                              ║ │
+│ ║  🕐 Time-based Patterns:                                                    ║ │
+│ ║  ├─ Peak Activity: 09:00-11:00 และ 13:00-15:00                             ║ │
+│ ║  ├─ Database Heavy Hours: 09:15-09:45 (Complex queries)                    ║ │
+│ ║  ├─ Low Activity: 12:00-13:00 (Lunch break pattern)                        ║ │
+│ ║  └─ Evening Wind-down: 16:30+ (Simple queries only)                        ║ │
+│ ║                                                                              ║ │
+│ ║  🔄 Sequential Patterns:                                                    ║ │
+│ ║  ├─ LOGIN → Dashboard View → Database Query (98% probability)              ║ │
+│ ║  ├─ Complex Query → Document Access → Report Generation (85%)              ║ │
+│ ║  ├─ HR Module → Employee Query → Performance Review (92%)                  ║ │
+│ ║  └─ Approval Action → Database Update → Notification (100%)                ║ │
+│ ║                                                                              ║ │
+│ ║  🎯 Efficiency Patterns:                                                    ║ │
+│ ║  ├─ High Efficiency: Morning sessions (87% avg)                            ║ │
+│ ║  ├─ Query Optimization: Uses indexed queries 94% of time                   ║ │
+│ ║  ├─ Batch Operations: Prefers bulk updates (saves 60% time)                ║ │
+│ ║  └─ Cache Usage: Leverages cached results when available                    ║ │
+│ ╚══════════════════════════════════════════════════════════════════════════════╝ │
+└─────────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                           🗄️  Database Performance Impact                      │
+│                                                                                 │
+│ ╔══════════════════════════════════════════════════════════════════════════════╗ │
+│ ║                        📈 Performance Metrics by User                       ║ │
+│ ║                                                                              ║ │
+│ ║  USR001 - Database Usage Profile:                                           ║ │
+│ ║                                                                              ║ │
+│ ║  📊 Query Distribution:                                                     ║ │
+│ ║  ├─ 🟢 Simple Queries (0-0.5s):    85% (2,124 queries)                    ║ │
+│ ║  ├─ 🟡 Medium Queries (0.5-2s):    12% (298 queries)                      ║ │
+│ ║  ├─ 🟠 Complex Queries (2-5s):     2.8% (67 queries)                      ║ │
+│ ║  └─ 🔴 Heavy Queries (>5s):        0.2% (4 queries)                       ║ │
+│ ║                                                                              ║ │
+│ ║  ⚡ Performance Impact:                                                     ║ │
+│ ║  ├─ Total Query Time: 847.23 seconds                                       ║ │
+│ ║  ├─ Average Response: 0.34 seconds                                         ║ │
+│ ║  ├─ Database Load: 2.3% of total system load                               ║ │
+│ ║  └─ Optimization Score: 92/100 (Excellent)                                 ║ │
+│ ║                                                                              ║ │
+│ ║  🎯 Optimization Suggestions:                                               ║ │
+│ ║  ├─ ✅ Already using indexes efficiently                                    ║ │
+│ ║  ├─ ⚠️  Consider pagination for large result sets                          ║ │
+│ ║  ├─ 💡 Use prepared statements for repeated queries                         ║ │
+│ ║  └─ 🔄 Schedule heavy reports for off-peak hours                           ║ │
+│ ╚══════════════════════════════════════════════════════════════════════════════╝ │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+#### Real-time Activity Correlation Dashboard
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                       🔗 REAL-TIME ACTIVITY CORRELATION                        │
+│                                                                                 │
+│ ╔══════════════════════════════════════════════════════════════════════════════╗ │
+│ ║                     🕐 Current Activity Stream (Live)                       ║ │
+│ ║                                                                              ║ │
+│ ║  15:45:23 👤 USR001 ───► 📊 Dashboard View                                  ║ │
+│ ║              └─── 🗄️  Query: SELECT COUNT(*) FROM active_sessions          ║ │
+│ ║                   ⚡ 0.045s | 1 row | 🟢 Instant                           ║ │
+│ ║                                                                              ║ │
+│ ║  15:45:35 👤 USR001 ───► 👥 HR Module Access                               ║ │
+│ ║              └─── 🗄️  Query: SELECT * FROM employees WHERE dept='HR'       ║ │
+│ ║                   ⚡ 0.234s | 156 rows | 🟢 Fast                           ║ │
+│ ║                                                                              ║ │
+│ ║  15:45:52 👤 USR001 ───► 📄 Document: employee_list.xlsx                   ║ │
+│ ║              └─── 🗄️  Query: INSERT INTO document_access_logs...            ║ │
+│ ║                   ⚡ 0.012s | 1 row inserted | 🚀 Excellent                ║ │
+│ ║                                                                              ║ │
+│ ║  15:46:15 👤 USR001 ───► 🔍 Search: "performance review"                   ║ │
+│ ║              └─── 🗄️  Full-text search across documents                     ║ │
+│ ║                   ⚡ 1.234s | 23 matches | 🟡 Acceptable                   ║ │
+│ ║                                                                              ║ │
+│ ║  15:46:33 👤 USR001 ───► ✅ Approval: WF_008 (TRAINING_REQUEST)            ║ │
+│ ║              ├─── 🗄️  UPDATE approval_process_logs SET status='APPROVED'   ║ │
+│ ║              │    ⚡ 0.023s | 1 row | 🟢 Success                           ║ │
+│ ║              ├─── 🗄️  INSERT INTO user_detailed_actions...                  ║ │
+│ ║              │    ⚡ 0.015s | 1 row | 🟢 Logged                            ║ │
+│ ║              └─── 📧 Notification sent to requester                         ║ │
+│ ║                                                                              ║ │
+│ ║  🔄 Live Updates: Every 5 seconds | Buffer: 50 activities                  ║ │
+│ ╚══════════════════════════════════════════════════════════════════════════════╝ │
+└─────────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                          📊 Correlation Analysis                               │
+│                                                                                 │
+│ ╔══════════════════════════════════════════════════════════════════════════════╗ │
+│ ║                       🔗 Activity-Database Correlations                     ║ │
+│ ║                                                                              ║ │
+│ ║  📈 Strong Correlations (>90% confidence):                                 ║ │
+│ ║  ├─ Document Access → SELECT query on DOCUMENT_ACCESS_LOGS (99.8%)         ║ │
+│ ║  ├─ Approval Action → UPDATE + INSERT operations (99.2%)                   ║ │
+│ ║  ├─ Module Switch → Activity logging INSERT (98.7%)                        ║ │
+│ ║  └─ Search Action → Full-text search queries (97.4%)                       ║ │
+│ ║                                                                              ║ │
+│ ║  📊 Medium Correlations (70-90% confidence):                               ║ │
+│ ║  ├─ Long Session → Complex analytical queries (85.3%)                      ║ │
+│ ║  ├─ Multiple Modules → JOIN operations increase (78.9%)                    ║ │
+│ ║  ├─ Peak Hours → Database response time degradation (74.2%)                ║ │
+│ ║  └─ Report Generation → Temporary table creation (71.8%)                   ║ │
+│ ║                                                                              ║ │
+│ ║  🎯 Predictive Insights:                                                    ║ │
+│ ║  ├─ Next likely action: Document search (73% probability)                  ║ │
+│ ║  ├─ Expected database load: Light (0.2-0.8s queries)                       ║ │
+│ ║  ├─ Optimal suggestion: Pre-cache common HR reports                        ║ │
+│ ║  └─ Performance tip: Use batch operations for multiple updates             ║ │
+│ ╚══════════════════════════════════════════════════════════════════════════════╝ │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+#### Historical Trend Analysis
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                          📈 HISTORICAL TREND ANALYSIS                          │
+│                                                                                 │
+│ ╔══════════════════════════════════════════════════════════════════════════════╗ │
+│ ║                         📊 30-Day Behavior Evolution                        ║ │
+│ ║                                                                              ║ │
+│ ║  Database Usage Trends:                                                     ║ │
+│ ║                                                                              ║ │
+│ ║  Query Complexity Over Time:                                                ║ │
+│ ║  ┌────────────────────────────────────────────────────────────────────────┐ ║ │
+│ ║  │ Complex │                                    ●                          │ ║ │
+│ ║  │ Queries │                          ●     ●     ●                        │ ║ │
+│ ║  │ (2s+)   │        ●           ●        ●           ●                     │ ║ │
+│ ║  │         │     ●     ●     ●                         ●                   │ ║ │
+│ ║  │         │  ●           ●                             ●     ●           │ ║ │
+│ ║  │ Simple  │●                                               ●     ●   ●   │ ║ │
+│ ║  │ Queries │                                                               │ ║ │
+│ ║  │ (0.5s-) └──────────────────────────────────────────────────────────────┘ ║ │
+│ ║  │         1    5    10   15   20   25   30 (วันที่)                      │ ║ │
+│ ║  │                                                                          │ ║ │
+│ ║  ├─ 📈 Learning Curve: User efficiency improving over time                  ║ │
+│ ║  ├─ 🎯 Optimization: 23% reduction in query complexity                     ║ │
+│ ║  ├─ 💡 Pattern: More targeted queries, less exploratory searching          ║ │
+│ ║  └─ 🔍 Insight: User becoming more expert in data navigation               ║ │
+│ ║                                                                              ║ │
+│ ║  🕐 Usage Pattern Evolution:                                                ║ │
+│ ║  ├─ Week 1: Exploration phase (many diverse queries)                       ║ │
+│ ║  ├─ Week 2: Learning phase (repeated similar patterns)                     ║ │
+│ ║  ├─ Week 3: Efficiency phase (optimized workflows)                         ║ │
+│ ║  └─ Week 4: Expert phase (minimal, targeted actions)                       ║ │
+│ ║                                                                              ║ │
+│ ║  📊 Performance Impact Reduction:                                           ║ │
+│ ║  ├─ Database load per session: ↓ 34%                                       ║ │
+│ ║  ├─ Average query time: ↓ 28%                                              ║ │
+│ ║  ├─ Failed/retry queries: ↓ 67%                                            ║ │
+│ ║  └─ Resource efficiency: ↑ 45%                                             ║ │
+│ ╚══════════════════════════════════════════════════════════════════════════════╝ │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+### 🛠️ Advanced Search Implementation Features
+
+#### Database Schema for Enhanced Tracking
+```sql
+-- Enhanced tracking tables for multi-dimensional analysis
+CREATE TABLE USER_TIMELINE_EVENTS (
+    EVENT_ID VARCHAR2(50) PRIMARY KEY,
+    USER_ID VARCHAR2(50) NOT NULL,
+    EVENT_TIMESTAMP TIMESTAMP NOT NULL,
+    EVENT_TYPE VARCHAR2(50) NOT NULL, -- UI_ACTION, DB_QUERY, SYSTEM_EVENT
+    EVENT_CATEGORY VARCHAR2(50), -- LOGIN, NAVIGATION, QUERY, TRANSACTION
+    EVENT_DETAILS CLOB, -- JSON with full context
+    DATABASE_IMPACT_SCORE NUMBER(3,2), -- 0-1 scale
+    PERFORMANCE_METRICS CLOB, -- Query time, rows affected, etc.
+    CORRELATION_ID VARCHAR2(100), -- Link related events
+    CREATED_DATE TIMESTAMP DEFAULT SYSTIMESTAMP
+);
+
+CREATE TABLE USER_BEHAVIOR_CORRELATIONS (
+    CORRELATION_ID VARCHAR2(50) PRIMARY KEY,
+    USER_ID VARCHAR2(50) NOT NULL,
+    EVENT_SEQUENCE CLOB NOT NULL, -- JSON array of events
+    PATTERN_TYPE VARCHAR2(50), -- SEQUENTIAL, TEMPORAL, CAUSAL
+    CONFIDENCE_SCORE NUMBER(3,2),
+    DATABASE_OPERATIONS CLOB, -- Associated DB operations
+    PERFORMANCE_IMPACT CLOB, -- Performance metrics
+    PREDICTION_ACCURACY NUMBER(3,2),
+    CREATED_DATE TIMESTAMP DEFAULT SYSTIMESTAMP
+);
+
+CREATE TABLE DATABASE_QUERY_ANALYTICS (
+    QUERY_ID VARCHAR2(50) PRIMARY KEY,
+    USER_ID VARCHAR2(50) NOT NULL,
+    SESSION_ID VARCHAR2(100),
+    QUERY_TEXT CLOB NOT NULL,
+    QUERY_TYPE VARCHAR2(50), -- SELECT, INSERT, UPDATE, DELETE
+    EXECUTION_TIME NUMBER, -- milliseconds
+    ROWS_AFFECTED NUMBER,
+    CPU_USAGE NUMBER,
+    MEMORY_USAGE NUMBER,
+    IO_OPERATIONS NUMBER,
+    QUERY_PLAN CLOB,
+    OPTIMIZATION_SUGGESTIONS CLOB,
+    CORRELATION_EVENT_ID VARCHAR2(50),
+    CREATED_DATE TIMESTAMP DEFAULT SYSTIMESTAMP
+);
+```
+
+#### Search API Integration
+```java
+// Enhanced search service for multi-dimensional analysis
+@Service
+public class UserBehaviorSearchService {
+    
+    @Inject
+    private UserTimelineRepository timelineRepo;
+    
+    @Inject
+    private DatabaseAnalyticsRepository dbAnalyticsRepo;
+    
+    public UserBehaviorTimeline searchUserBehavior(UserBehaviorSearchCriteria criteria) {
+        // Multi-dimensional search with database correlation
+        List<TimelineEvent> events = timelineRepo.findByCriteria(criteria);
+        List<DatabaseOperation> dbOps = dbAnalyticsRepo.findByUserAndTimeRange(
+            criteria.getUserId(), criteria.getStartTime(), criteria.getEndTime());
+        
+        // Correlate UI events with database operations
+        UserBehaviorTimeline timeline = correlateEventsWithDatabaseOps(events, dbOps);
+        
+        // Add performance analysis
+        timeline.setPerformanceAnalysis(analyzePerformanceImpact(dbOps));
+        
+        // Add behavioral patterns
+        timeline.setBehavioralPatterns(identifyPatterns(events));
+        
+        return timeline;
+    }
+    
+    private UserBehaviorTimeline correlateEventsWithDatabaseOps(
+            List<TimelineEvent> events, List<DatabaseOperation> dbOps) {
+        
+        UserBehaviorTimeline timeline = new UserBehaviorTimeline();
+        
+        for (TimelineEvent event : events) {
+            CorrelatedTimelineEntry entry = new CorrelatedTimelineEntry();
+            entry.setEvent(event);
+            
+            // Find related database operations (within 5 seconds)
+            List<DatabaseOperation> relatedOps = dbOps.stream()
+                .filter(op -> isTemporallyRelated(event, op))
+                .collect(Collectors.toList());
+            
+            entry.setDatabaseOperations(relatedOps);
+            entry.setDatabaseImpactScore(calculateImpactScore(relatedOps));
+            
+            timeline.addEntry(entry);
+        }
+        
+        return timeline;
+    }
+    
+    private boolean isTemporallyRelated(TimelineEvent event, DatabaseOperation dbOp) {
+        long timeDiff = Math.abs(
+            event.getTimestamp().getTime() - dbOp.getExecutionTime().getTime());
+        return timeDiff <= 5000; // 5 seconds threshold
+    }
+}
+```
+
+#### Frontend Dashboard Components
+```typescript
+// Multi-dimensional timeline component
+export class UserBehaviorTimelineComponent {
+    
+    searchCriteria: UserBehaviorSearchCriteria = {};
+    timelineData: UserBehaviorTimeline | null = null;
+    
+    async searchUserBehavior() {
+        try {
+            this.timelineData = await this.behaviorService.searchBehavior(this.searchCriteria);
+            this.renderTimeline();
+            this.highlightDatabaseOperations();
+        } catch (error) {
+            console.error('Search failed:', error);
+        }
+    }
+    
+    private renderTimeline() {
+        // Render interactive timeline with database operation highlights
+        const timelineContainer = document.getElementById('timeline-container');
+        
+        this.timelineData?.entries.forEach(entry => {
+            const eventElement = this.createEventElement(entry);
+            
+            // Highlight database-related events
+            if (entry.databaseOperations.length > 0) {
+                eventElement.classList.add('database-related');
+                this.addDatabaseTooltip(eventElement, entry.databaseOperations);
+            }
+            
+            timelineContainer?.appendChild(eventElement);
+        });
+    }
+    
+    private highlightDatabaseOperations() {
+        // Add special highlighting for database operations
+        const dbOperations = document.querySelectorAll('.database-operation');
+        
+        dbOperations.forEach(op => {
+            const impactScore = parseFloat(op.getAttribute('data-impact-score') || '0');
+            
+            if (impactScore > 0.8) {
+                op.classList.add('high-impact');
+            } else if (impactScore > 0.5) {
+                op.classList.add('medium-impact');
+            } else {
+                op.classList.add('low-impact');
+            }
+        });
+    }
+}
+```
+
+### 🎯 Key Features Summary
+
+#### Multi-Dimensional Search Capabilities:
+- **👤 User-specific search** with flexible date ranges
+- **🕐 Time-based filtering** (hourly, daily, weekly patterns)
+- **📊 Activity type filtering** (database, documents, approvals, etc.)
+- **🎯 Focus area filtering** (performance, security, collaboration)
+- **🔍 Text search** across all user activities
+
+#### Database Correlation & Highlighting:
+- **🗄️ Real-time database operation tracking** with performance metrics
+- **⚡ Response time monitoring** with color-coded performance indicators
+- **🔗 Activity-database correlation** showing UI actions → DB queries
+- **📈 Performance impact analysis** with optimization suggestions
+- **🚨 Performance alerts** for slow or problematic queries
+
+#### Visual Timeline Features:
+- **📈 Interactive timeline** with zoom and navigation controls
+- **🎨 Color-coded highlights** for different activity types
+- **🗄️ Database operation emphasis** with special highlighting
+- **📊 Pattern recognition** and behavioral analysis
+- **🔍 Drill-down capabilities** for detailed investigation
+
+#### Advanced Analytics:
+- **🧠 Behavioral pattern recognition** using machine learning
+- **📊 Performance trend analysis** over time
+- **🎯 Predictive insights** for user behavior
+- **⚡ Optimization recommendations** for better performance
+- **📈 Learning curve tracking** and skill development monitoring
+
