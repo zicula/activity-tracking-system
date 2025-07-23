@@ -90,9 +90,9 @@
 - If this task changes, update: Deployment documentation, Infrastructure documentation
 
 ### Task 1.4: Basic Authentication Integration
-**Description:** Integrate กับ E-Office authentication system และ implement JWT handling  
+**Description:** Integrate กับ web application authentication system และ implement JWT handling  
 **Acceptance Criteria:**
-- [ ] E-Office SSO/LDAP integration working
+- [ ] Web App SSO/LDAP integration working
 - [ ] JWT token generation และ validation
 - [ ] User role mapping (Admin, Manager, User)
 - [ ] Session management implementation
@@ -174,7 +174,7 @@
 - If this task changes, update: Approval system integration guide
 
 ### Task 2.4: Module Usage Tracking Service
-**Description:** สร้าง service สำหรับติดตามการใช้งานโมดูลต่างๆ ในระบบ E-Office  
+**Description:** สร้าง service สำหรับติดตามการใช้งานโมดูลต่างๆ ใน web application  
 **Acceptance Criteria:**
 - [ ] Module access tracking API
 - [ ] Session duration tracking per module
@@ -481,7 +481,7 @@ QA Engineer (1): Testing และ quality assurance
 | Risk | Probability | Impact | Mitigation |
 |------|-------------|--------|------------|
 | Oracle licensing issues | Low | High | Early license verification, PostgreSQL fallback |
-| E-Office integration complexity | Medium | High | Early prototype, stakeholder alignment |
+| Web application integration complexity | Medium | High | Early prototype, stakeholder alignment |
 | Infrastructure setup delays | Medium | Medium | DevOps early involvement, cloud backup plan |
 
 ### Epic 2 Risks:

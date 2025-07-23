@@ -9,7 +9,7 @@
 **Reviewers:** [Pending]
 
 ## Executive Summary
-ACTIVITY-TRACKING เป็นระบบติดตามพฤติกรรมของผู้ใช้งานในระบบ E-Office อย่างครอบคลุมและละเอียด ออกแบบมาเพื่อเก็บบันทึกทุกการปฏิสัมพันธ์ของผู้ใช้งาน รวมถึง:
+ACTIVITY-TRACKING เป็นระบบติดตามพฤติกรรมของผู้ใช้งานใน web application อย่างครอบคลุมและละเอียด ออกแบบมาเพื่อเก็บบันทึกทุกการปฏิสัมพันธ์ของผู้ใช้งาน รวมถึง:
 
 **Comprehensive User Behavior Tracking:**
 - **Click-level tracking**: ทุกการกดปุ่ม, การคลิกลิงก์, การเลือกเมนู
@@ -29,7 +29,7 @@ ACTIVITY-TRACKING เป็นระบบติดตามพฤติกร�
 ### High-Level Architecture
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│                    E-OFFICE ECOSYSTEM                              │
+│                    WEB APPLICATION ECOSYSTEM                        │
 ├─────────────────────────────────────────────────────────────────────┤
 │  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐   │
 │  │   Portal    │ │ Doc Mgmt    │ │ Approval    │ │ HR Portal   │   │
@@ -543,7 +543,7 @@ Response:
 ### Authentication & Authorization
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   E-Office      │    │  ACTIVITY-      │    │    Oracle       │
+│  Web App       │    │  ACTIVITY-      │    │    Oracle       │
 │   SSO/LDAP      │───▶│  TRACKING       │───▶│   Database      │
 │                 │    │   Gateway       │    │                 │
 └─────────────────┘    └─────────────────┘    └─────────────────┘
@@ -1069,7 +1069,7 @@ public class BehaviorTrackingMetrics {
 
 ## Conclusion
 
-This comprehensive design document outlines the technical architecture for the **ACTIVITY-TRACKING system**, specifically engineered to capture and analyze detailed user behavior patterns in the E-Office environment. The system is designed to track **ทุกการกดปุ่ม, flow การใช้งานระบบในแต่ละ session รวมถึงทุกอย่างที่สามารถเก็บได้จากพฤติกรรมของ user** (every button click, system usage flows in each session, including everything that can be captured from user behavior).
+This comprehensive design document outlines the technical architecture for the **ACTIVITY-TRACKING system**, specifically engineered to capture and analyze detailed user behavior patterns in the web application environment. The system is designed to track **ทุกการกดปุ่ม, flow การใช้งานระบบในแต่ละ session รวมถึงทุกอย่างที่สามารถเก็บได้จากพฤติกรรมของ user** (every button click, system usage flows in each session, including everything that can be captured from user behavior).
 
 ### Key Design Principles Implemented:
 
@@ -1122,7 +1122,7 @@ The ACTIVITY-TRACKING system delivers unprecedented insights into user behavior 
 
 The design supports incremental 21-week development across 5 major epics, with clear dependencies and risk mitigation strategies. The modular architecture enables parallel development teams while maintaining integration consistency.
 
-This technical blueprint provides the foundation for building a world-class user behavior analytics platform that transforms how the E-Office understands and optimizes user interactions with their digital systems.
+This technical blueprint provides the foundation for building a world-class user behavior analytics platform that transforms how organizations understand and optimize user interactions with their digital systems.
 
 ---
 

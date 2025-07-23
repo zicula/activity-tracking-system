@@ -710,7 +710,7 @@ public class ActivityTrackingResponseWrapper extends HttpServletResponseWrapper 
          http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
     
-    <display-name>E-Office Activity Tracking</display-name>
+    <display-name>Web Application Activity Tracking</display-name>
     
     <!-- Activity Tracking Configuration -->
     <context-param>
@@ -1291,4 +1291,4 @@ public class ApprovalBean implements Serializable {
 4. **รองรับ PrimeFaces**: Integration พิเศษสำหรับ PrimeFaces components
 5. **Performance-aware**: ใช้ buffering และ throttling เพื่อประสิทธิภาพ
 
-แนวทางนี้เหมาะสำหรับระบบ E-Office ที่ต้องการติดตามพฤติกรรมผู้ใช้อย่างละเอียดโดยไม่รบกวนการทำงานปัจจุบัน
+แนวทางนี้เหมาะสำหรับ web application ที่ต้องการติดตามพฤติกรรมผู้ใช้อย่างละเอียดโดยไม่รบกวนการทำงานปัจจุบัน

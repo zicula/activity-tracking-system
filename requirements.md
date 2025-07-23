@@ -1,13 +1,13 @@
 # Requirements Document - ACTIVITY-TRACKING System
 
 ## Project Overview
-**Project Name:** ACTIVITY-TRACKING  
+**Project Name:** ACTIVITY-TRACKING System  
 **Version:** 1.0  
-**Date:** July 23, 2025  
-**Stakeholders:** E-Office Development Team, IT Administration, Department Heads, HR Team, Compliance Officer
+**Date:** 2025-03-XX  
+**Stakeholders:** Development Team, IT Administration, Department Heads, HR Team, Compliance Officer
 
 ## Executive Summary
-ACTIVITY-TRACKING เป็นระบบติดตามกิจกรรมของพนักงานในระบบ E-Office ที่ออกแบบมาเพื่อเก็บบันทึกการใช้งานระบบอย่างครอบคลุม รองรับผู้ใช้งาน 2,000-8,000 คน และสอดคล้องกับข้อกำหนด PDPA
+ACTIVITY-TRACKING เป็นระบบติดตามกิจกรรมของผู้ใช้งานใน web application ที่ออกแบบมาเพื่อเก็บบันทึกการใช้งานระบบอย่างครอบคลุม รองรับผู้ใช้งาน 2,000-8,000 คน และสอดคล้องกับข้อกำหนด PDPA
 
 ---
 
@@ -23,7 +23,7 @@ ACTIVITY-TRACKING เป็นระบบติดตามกิจกรร�
 - [ ] ตรวจจับ concurrent sessions
 - [ ] Alert เมื่อมี suspicious login patterns
 **Priority:** High  
-**Dependencies:** E-Office Authentication Module
+**Dependencies:** Web Application Authentication Module
 
 ### FR2: Document Access Tracking
 **Description:** ติดตามการเข้าถึงเอกสารและไฟล์ในระบบ  
@@ -50,18 +50,14 @@ ACTIVITY-TRACKING เป็นระบบติดตามกิจกรร�
 **Dependencies:** Approval Workflow Engine
 
 ### FR4: Module Usage Tracking
-**Description:** ติดตามการใช้งานโมดูลต่างๆ ในระบบ E-Office  
-**User Story:** As an IT Admin, I want to understand module usage patterns so that I can optimize system performance and resource allocation  
+**Description:** ติดตามการใช้งานโมดูลต่างๆ ในระบบ web application  
+**User Story:** As a system administrator, I want to track module usage เพื่อให้เข้าใจการใช้งานของแต่ละโมดูล
 **Acceptance Criteria:**
-- [ ] ติดตามการเข้าใช้งานแต่ละโมดูล
-- [ ] บันทึก session duration ในแต่ละโมดูล
-- [ ] เก็บสstatistics การใช้งาน features
-- [ ] ติดตาม error และ performance issues
-- [ ] สร้าง usage analytics dashboard
-**Priority:** Medium  
-**Dependencies:** All E-Office Modules
-
-### FR5: Real-time Dashboard
+- [ ] ติดตามการเข้าถึง module ทั้งหมด
+- [ ] บันทึกเวลาใช้งานในแต่ละ module
+- [ ] Track การสลับระหว่าง modules  
+**Priority:** High  
+**Dependencies:** All Web Application Modules### FR5: Real-time Dashboard
 **Description:** แสดงข้อมูลการใช้งานแบบ real-time สำหรับ administrators  
 **User Story:** As an IT Admin, I want to see real-time activity so that I can monitor system health and respond to issues quickly  
 **Acceptance Criteria:**
@@ -148,7 +144,7 @@ ACTIVITY-TRACKING เป็นระบบติดตามกิจกรร�
 - **Load Balancer:** Nginx
 
 ### TC2: Integration Points
-- **E-Office Main Portal:** Primary integration
+- **Main Web Application Portal:** Primary integration
 - **Sub-modules:** 5-7 modules (Document Management, Approval System, HR Portal, Finance Module, Report Center)
 - **Total Integration Points:** 8-10 web applications
 
@@ -188,7 +184,7 @@ ACTIVITY-TRACKING เป็นระบบติดตามกิจกรร�
 - Oracle Database license มีอยู่และเพียงพอ
 
 ### A2: Integration Assumptions
-- E-Office applications ยินยอมให้เพิ่ม JavaScript tracking code
+- Web applications ยินยอมให้เพิ่ม JavaScript tracking code
 - API access จะถูกจัดหาสำหรับ server-side logging
 - Database access permissions จะได้รับการอนุญาต
 
@@ -205,12 +201,12 @@ ACTIVITY-TRACKING เป็นระบบติดตามกิจกรร�
 - [ ] ติดตามกิจกรรมครบทั้ง 4 ประเภท (login, document access, approvals, module usage)
 - [ ] Real-time dashboard ทำงานได้ถูกต้อง
 - [ ] Reporting system สร้างรายงานได้ตาม requirements
-- [ ] Integration กับทุก E-Office modules สำเร็จ
+- [ ] Integration กับทุก web application modules สำเร็จ
 
 ### SC2: Performance Success
 - [ ] รองรับ concurrent users ตาม specification
 - [ ] Response time เป็นไปตาม target
-- [ ] ไม่มี performance impact > 5% ต่อ E-Office system
+- [ ] ไม่มี performance impact > 5% ต่อ main web application system
 - [ ] Data processing pipeline ทำงานได้ real-time
 
 ### SC3: Compliance Success
@@ -230,7 +226,7 @@ ACTIVITY-TRACKING เป็นระบบติดตามกิจกรร�
 ## Risks and Mitigation
 
 ### R1: Performance Risk
-**Risk:** System อาจส่งผลกระทบต่อ performance ของ E-Office  
+**Risk:** System อาจส่งผลกระทบต่อ performance ของ main web application  
 **Impact:** High  
 **Probability:** Medium  
 **Mitigation:** 

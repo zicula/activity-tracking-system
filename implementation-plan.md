@@ -46,7 +46,7 @@
 
 **Week 5-6: Session Management**
 - Session tracking service implementation
-- User authentication integration with E-Office SSO
+- User authentication integration with web application SSO
 - Basic activity logging endpoints
 - Database INSERT optimization
 
@@ -576,7 +576,7 @@ public class LoggingInterceptor implements HandlerInterceptor {
 - Clear data retention policies
 - Regular compliance audits
 
-#### R5: Integration with E-Office Systems
+#### R5: Integration with Web Application Systems
 **Risk Level:** High  
 **Impact:** Project delays, functionality gaps  
 **Mitigation Strategies:**
@@ -597,7 +597,7 @@ public class LoggingInterceptor implements HandlerInterceptor {
 - **Error Rate:** <0.1% of total requests
 
 ### Business KPIs
-- **User Adoption:** 80% of E-Office users tracked within 3 months
+- **User Adoption:** 80% of web application users tracked within 3 months
 - **Data Quality:** 99% of behavior events captured successfully
 - **Compliance:** 100% PDPA compliance in audits
 - **ROI:** Achieve positive ROI within 12 months

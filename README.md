@@ -1,4 +1,10 @@
-# 🎯 Activity-Log Project: Kiro-Style Development
+# 🎯 Activity Tracking System: Kiro-Style Development
+
+[![GitHub](https://img.shields.io/github/license/zicula/activity-tracking-system)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/zicula/activity-tracking-system?style=social)](https://github.com/zicula/activity-tracking-system)
+[![GitHub forks](https://img.shields.io/github/forks/zicula/activity-tracking-system?style=social)](https://github.com/zicula/activity-tracking-system)
+
+> 🚀 **Comprehensive user behavior tracking system with AI-driven development methodology**
 
 ## ภาพรวมโปรเจ็ค
 
@@ -222,7 +228,53 @@ AI จะ:
 
 ---
 
-## 🤝 การมีส่วนร่วม
+---
+
+## 🤝 การมีส่วนร่วม (Contributing)
+
+เรายินดีรับการมีส่วนร่วมจากชุมชน! ไม่ว่าจะเป็น:
+
+### 🎯 **วิธีการมีส่วนร่วม:**
+- 🐛 **รายงานปัญหา:** สร้าง GitHub Issues
+- 💡 **เสนอแนวคิด:** สร้าง Feature Requests  
+- 📖 **ปรับปรุงเอกสาร:** ส่ง Pull Requests
+- 🔧 **พัฒนาโค้ด:** ทำตาม Kiro methodology
+
+### 📋 **ขั้นตอนการ Contribute:**
+
+1. **Fork Repository**
+   ```bash
+   # คลิก Fork บน GitHub
+   git clone https://github.com/YOUR_USERNAME/activity-tracking-system.git
+   ```
+
+2. **สร้าง Feature Branch**
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+
+3. **ทำตาม Kiro Workflow**
+   ```
+   1. อัพเดท requirements.md (ถ้าจำเป็น)
+   2. อัพเดท design.md (ถ้าจำเป็น)
+   3. เพิ่ม tasks ใน tasks.md
+   4. Implement ตาม implementation-plan.md
+   5. เขียน tests และ documentation
+   ```
+
+4. **Submit Pull Request**
+   ```bash
+   git commit -m "✨ Add your feature description"
+   git push origin feature/your-feature-name
+   # สร้าง Pull Request บน GitHub
+   ```
+
+### 📚 **หลักเกณฑ์การ Contribute:**
+- ✅ ทำตาม [Kiro Methodology](kiro-style-prompts.md)
+- ✅ เขียน documentation ครบถ้วน
+- ✅ เพิ่ม tests สำหรับ feature ใหม่
+- ✅ ใช้ commit message ที่ชัดเจน
+- ✅ รักษา code quality standards
 
 ### วิธีการปรับปรุงและพัฒนา:
 
@@ -264,7 +316,16 @@ AI จะ:
 
 ## 📜 License
 
-โปรเจ็คนี้พัฒนาขึ้นเพื่อการศึกษาและการใช้งานภายในองค์กร สามารถนำไปปรับใช้และพัฒนาต่อได้ตามความเหมาะสม
+โปรเจ็คนี้อยู่ภายใต้ [MIT License](LICENSE) สามารถนำไปใช้งาน แก้ไข และแจกจ่ายได้อย่างเสรี
+
+---
+
+## 🔗 Links
+
+- 📦 **GitHub Repository:** https://github.com/zicula/activity-tracking-system
+- 📖 **Documentation:** [Quick Start Guide](quick-start-guide.md)
+- 🎯 **Methodology:** [Kiro-Style Prompts](kiro-style-prompts.md)
+- 🎪 **Examples:** [Usage Examples](kiro-example-usage.md)
 
 ---
 

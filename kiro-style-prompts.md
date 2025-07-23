@@ -506,7 +506,7 @@ AI: [ใช้ Master Prompt + Requirements Analysis Prompt]
 
 ### เหตุผลในการเลือก REST API:
 เลือกใช้ REST API เนื่องจากเป็นมาตรฐานที่ทีมงานคุ้นเคย และสามารถ integrate 
-กับระบบ E-Office ปัจจุบันได้ง่าย
+กับระบบ web application ปัจจุบันได้ง่าย
 
 ### Endpoints หลัก:
 - `POST /api/v1/activities` - บันทึกกิจกรรมของผู้ใช้
