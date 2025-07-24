@@ -1,0 +1,193 @@
+{
+  "searchLetterActivity": {
+    "timestamp": "2025-07-23T16:45:04.964+07:00",
+    "sessionInfo": {
+      "sessionId": "E6A3F57C1E1D3DF53182003476A10999",
+      "secondarySessionId": "EFB14CB5E81EFDEC6365F16434F3DA90",
+      "userToken": "sirat-EFB14CB5E81EFDEC6365F16434F3DA90",
+      "duration": "8.5 hours",
+      "isActive": true
+    },
+    "userInfo": {
+      "userId": "sirat",
+      "userName": "นางสาวศรีรัตน์ โกมลสวัสดิ์",
+      "personalId1": 3284,
+      "personalId2": "5709990009656",
+      "officeId1": 12403,
+      "officeName1": "สลก. ฝ่ายสารบรรณ",
+      "officeId2": 12403,
+      "officeName2": "ฝ่ายสารบรรณ",
+      "officeId3": 713,
+      "position": "หัวหน้าฝ่ายสารบรรณ",
+      "level": "อาวุโส",
+      "grade": "เจ้าพนักงานธุรการอาวุโส",
+      "accessLevel": "O3",
+      "departmentLevel": 2,
+      "roles": [
+        "CRBK-03", "CRBK-05", "CRRT-02", "EDCS-01", "EDCS-02", 
+        "EDCS-08", "EDCS-09", "EDCS-11", "EDOC-02", "HRST-02", 
+        "LEAV-02", "LEAV-03", "LEAV-04", "LEAV-05", "LEAV-07", 
+        "RMBK-01", "RMBK-02", "HRST-03"
+      ],
+      "availableModules": ["crbk", "crrt", "edcs", "edoc", "hrst", "leav", "rmbk"],
+      "totalAvailablePaths": 85
+    },
+    "requestInfo": {
+      "method": "POST",
+      "url": "http://boom.localhost:8080/edcs/pages/edcs/app/process/search-letter/search-letter.xhtml",
+      "queryString": null,
+      "remoteAddress": "0:0:0:0:0:0:0:1",
+      "remoteHost": "0:0:0:0:0:0:0:1",
+      "contentType": "application/x-www-form-urlencoded; charset=UTF-8",
+      "contentLength": 1055,
+      "isAjax": true,
+      "isSecure": false
+    },
+    "headers": {
+      "host": "boom.localhost:8080",
+      "accept": "application/xml, text/xml, */*; q=0.01",
+      "contentType": "application/x-www-form-urlencoded; charset=UTF-8",
+      "origin": "http://boom.localhost:8080",
+      "secFetchSite": "same-origin",
+      "secFetchMode": "cors",
+      "secFetchDest": "empty",
+      "facesRequest": "partial/ajax",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Safari/605.1.15",
+      "referer": "http://boom.localhost:8080/edcs/pages/edcs/app/process/search-letter/search-letter.xhtml",
+      "xRequestedWith": "XMLHttpRequest",
+      "acceptLanguage": "en-GB,en-US;q=0.9,en;q=0.8",
+      "priority": "u=3, i",
+      "acceptEncoding": "gzip, deflate",
+      "connection": "keep-alive"
+    },
+    "searchCriteria": {
+      "registrationIndicator": "R",
+      "electronicLetterIndicator": "Y",
+      "letterType": "1",
+      "bookId": "16375",
+      "startDate": "22/07/2568",
+      "endDate": "23/07/2568",
+      "year": "2568",
+      "registerNumber": "233",
+      "bookNumber": "กค0201//111",
+      "receivedDate": "23/07/2568",
+      "subject": "ทดสอบ",
+      "senderName": "ทดสอบ",
+      "selectedItemId": "4839b4fe-a99f-4901-8699-caefbdbed205",
+      "itemsPerPage": 10
+    },
+    "jsfFormData": {
+      "formId": "formc",
+      "viewState": "-544613972582291049:-5843612982711701610",
+      "partialAjax": true,
+      "source": "formc:senderNameBy",
+      "execute": "formc:senderNameBy",
+      "render": "formc:senderNameBy",
+      "behaviorEvent": "valueChange",
+      "partialEvent": "change",
+      "focusComponents": {
+        "letterTypeFocus": "",
+        "bookIdFocus": ""
+      }
+    },
+    "performanceMetrics": {
+      "responseTime": 0.965,
+      "networkLatency": 0.1,
+      "serverProcessingTime": 0.865,
+      "estimatedDatabaseQueryTime": 0.3,
+      "memoryUsage": 67.3,
+      "cpuUsage": 48.45,
+      "uptime": 99.96
+    },
+    "activityStats": {
+      "activeUsers": 127,
+      "searchesToday": 856,
+      "documentsFound": 2341,
+      "ajaxRequests": 1247,
+      "errorRate": 0.02,
+      "averageSessionDuration": 8.5
+    },
+    "recentActivities": [
+      {
+        "timestamp": "16:45:04",
+        "action": "Search form interaction - Sender name field changed",
+        "component": "formc:senderNameBy",
+        "type": "valueChange"
+      },
+      {
+        "timestamp": "16:44:58",
+        "action": "Form data validation completed",
+        "component": "formc",
+        "type": "validation"
+      },
+      {
+        "timestamp": "16:44:55",
+        "action": "Date picker interaction - End date selected",
+        "component": "formc:enDateQ1_input",
+        "type": "dateSelection"
+      },
+      {
+        "timestamp": "16:44:52",
+        "action": "Text input - Story field updated",
+        "component": "formc:story",
+        "type": "textInput"
+      },
+      {
+        "timestamp": "16:44:48",
+        "action": "Number input - Register number entered",
+        "component": "formc:numberRegister",
+        "type": "numberInput"
+      }
+    ],
+    "systemHealth": {
+      "status": "healthy",
+      "alerts": [],
+      "warnings": [],
+      "lastHealthCheck": "2025-07-23T16:45:00+07:00"
+    },
+    "securityInfo": {
+      "httpsEnabled": false,
+      "csrfProtection": true,
+      "sessionValid": true,
+      "concurrentSessions": 1,
+      "ipRestriction": false,
+      "lastSecurityCheck": "2025-07-23T16:45:00+07:00"
+    },
+    "recommendations": [
+      {
+        "category": "search",
+        "priority": "medium",
+        "description": "เพิ่ม Auto-complete สำหรับฟิลด์ 'ผู้ส่ง' และ 'เรื่อง'",
+        "impact": "improved user experience"
+      },
+      {
+        "category": "performance",
+        "priority": "low",
+        "description": "ใช้ Lazy Loading สำหรับตาราง",
+        "impact": "faster page load times"
+      },
+      {
+        "category": "security",
+        "priority": "high",
+        "description": "เพิ่ม Input validation สำหรับข้อมูลการค้นหา",
+        "impact": "enhanced security"
+      },
+      {
+        "category": "ux",
+        "priority": "medium",
+        "description": "ปรับปรุง Date Picker ให้ใช้งานง่ายขึ้น",
+        "impact": "better usability"
+      }
+    ],
+    "metadata": {
+      "logLevel": "INFO",
+      "logSource": "LogFilter",
+      "applicationContext": "edcs",
+      "serverEnvironment": "development",
+      "javaVersion": "1.8+",
+      "applicationServer": "Apache Tomcat",
+      "framework": "JSF",
+      "generatedAt": "2025-07-23T16:45:04.966+07:00"
+    }
+  }
+}

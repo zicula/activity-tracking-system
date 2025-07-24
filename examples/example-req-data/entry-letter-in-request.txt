@@ -1,0 +1,78 @@
+Summary
+URL: http://boom.localhost:8080/edcs/pages/edcs/app/process/entryLetterIn/entryLetterIn-letterFile.xhtml
+Status: 200
+Source: Network
+Address: ::1:8080
+Initiator: 
+jquery.js.xhtml:25:95340
+
+Request
+POST /edcs/pages/edcs/app/process/entryLetterIn/entryLetterIn-letterFile.xhtml HTTP/1.1
+Accept: application/xml, text/xml, */*; q=0.01
+Accept-Encoding: gzip, deflate
+Accept-Language: en-GB,en-US;q=0.9,en;q=0.8
+Connection: keep-alive
+Content-Length: 2818
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Cookie: JSESSIONID=B87E7A724B59CA92A84984174B4171A2; sid=EFB14CB5E81EFDEC6365F16434F3DA90; uid=sirat-EFB14CB5E81EFDEC6365F16434F3DA90
+Faces-Request: partial/ajax
+Origin: http://boom.localhost:8080
+Priority: u=3, i
+Referer: http://boom.localhost:8080/edcs/pages/edcs/app/process/entryLetterIn/entryLetterIn-letterFile.xhtml
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Safari/605.1.15
+X-Requested-With: XMLHttpRequest
+
+Response
+HTTP/1.1 200
+Cache-Control: no-cache
+Connection: keep-alive
+Content-Type: text/xml;charset=UTF-8
+Date: Wed, 23 Jul 2025 09:12:21 GMT
+Keep-Alive: timeout=20
+Transfer-Encoding: chunked
+X-UA-Compatible: IE=edge, chrome=1, IE=edge, chrome=1
+
+Request Data
+MIME Type: application/x-www-form-urlencoded; charset=UTF-8
+javax.faces.partial.ajax: true
+javax.faces.source: formc:e_btnReceive_test1
+javax.faces.partial.execute: formc
+javax.faces.partial.render: formc ccd:frmCustomConfirmDialog
+formc:e_btnReceive_test1: formc:e_btnReceive_test1
+formc: formc
+formc:regDate_input: 23/07/2568
+formc:urgentCode: 1
+formc:letterCategoryCode_input: หนังสือทั่วไป
+formc:letterCategoryCode_hinput: 1
+formc:withinDate_input: 23/07/2568
+formc:ownerDeptName2: ทดสอบจาก
+formc:letterNo: กค 0201.002
+formc:letterDate_input: 22/07/2568
+formc:subject: ทดสอบเรื่อง
+formc:receiverName_input: อธิบดีกรมสรรพสามิต (นางสาวกุลยา ตันติเตมิท)
+formc:inclosure: ทดสอบสิ่งที่ส่งมาด้วย
+formc:signerName: ทดสอบชื่อผู้ลงนาม
+formc:j_idt260_input: on
+formc:j_idt261_input: on
+formc:j_idt263_input: on
+formc:remark: เดินเรื่องเอง + สำเนากลับ + มีหนังสือฉบับจริง
+formc:proposes: P
+formc:purpose_p: 01
+formc:chkGetManager1_2_P: 7:257
+formc:j_idt276:5:selectListRepeat_2_P-letterin2:0:select-items-data-grid_propose-manager-top-2:0:send-letter-selected-check-box_propose-manager-top-2_input: on
+formc:blobNo
+formc:blobPath
+formc:blobNoBeforeReceive
+formc:blobPathBeforeReceive
+formc:dataTable-attach-before-receive:0:attachTypeCode-before-receive_focus
+formc:dataTable-attach-before-receive:0:attachTypeCode-before-receive_input: L
+formc:dataTable-attach-before-receive:0:blobNoBeforeReceive
+formc:dataTable-attach-before-receive:0:blobPathBeforeReceive
+formc:dataTable-attach-before-receive:0:letterIdBeforeReceive
+javax.faces.ViewState: -2779568506779245095:7706734825835866509
+
+**หน้าบันทึกหนังสือรับ
+**กดปุ่มบันทึก (formc:e_btnReceive_test1) แบบ process @form

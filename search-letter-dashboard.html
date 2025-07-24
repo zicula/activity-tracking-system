@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Letter Activity Dashboard - EDCS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+        }
+
+        .dashboard-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .header .subtitle {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .header .timestamp {
+            background: #3498db;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: 500;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .metric-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3498db, #9b59b6);
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .metric-label {
+            color: #7f8c8d;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .metric-icon {
+            font-size: 1.5rem;
+            margin-right: 8px;
+        }
+
+        .status-excellent { color: #27ae60; }
+        .status-good { color: #f39c12; }
+        .status-warning { color: #e74c3c; }
+
+        .activity-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(135deg, #3498db, #9b59b6);
+            margin-right: 12px;
+            border-radius: 2px;
+        }
+
+        .search-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .detail-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 4px solid #3498db;
+        }
+
+        .detail-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            padding: 8px 0;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .detail-label {
+            color: #7f8c8d;
+            font-weight: 500;
+        }
+
+        .detail-value {
+            color: #2c3e50;
+            font-weight: 600;
+            text-align: right;
+        }
+
+        .user-info {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .user-info h2 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .user-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .user-detail-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        .timeline {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .timeline-time {
+            background: #3498db;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-right: 15px;
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .timeline-content {
+            flex: 1;
+            color: #2c3e50;
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .live-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #27ae60;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 1.5s infinite;
+        }
+
+        .chart-container {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .chart-info {
+            text-align: center;
+            color: #7f8c8d;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+
+        .analytics-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .analytics-title {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .analytics-title::before {
+            content: '';
+            width: 4px;
+            height: 20px;
+            background: linear-gradient(135deg, #3498db, #9b59b6);
+            margin-right: 10px;
+            border-radius: 2px;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding: 8px 0;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .stat-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .stat-label {
+            color: #7f8c8d;
+            font-weight: 500;
+        }
+
+        .stat-value {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            background: #ecf0f1;
+            border-radius: 10px;
+            height: 8px;
+            margin: 5px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3498db, #9b59b6);
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+
+        .alert-item {
+            background: rgba(231, 76, 60, 0.1);
+            border-left: 4px solid #e74c3c;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .alert-warning {
+            background: rgba(243, 156, 18, 0.1);
+            border-left-color: #f39c12;
+        }
+
+        .alert-success {
+            background: rgba(39, 174, 96, 0.1);
+            border-left-color: #27ae60;
+        }
+
+        .module-usage {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .usage-bar {
+            flex: 1;
+            margin: 0 15px;
+        }
+
+        .top-users-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .top-users-table th,
+        .top-users-table td {
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .top-users-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        @media (max-width: 768px) {
+            .analytics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>📄 Search Letter Activity-Tracking Dashboard</h1>
+            <div class="subtitle">Electronic Document Control System (EDCS) - Activity Monitoring</div>
+            <div class="timestamp">
+                <span class="live-indicator"></span>
+                <span id="current-time">23 กรกฎาคม 2568, 16:45:04</span>
+            </div>
+        </div>
+
+        <!-- Primary Metrics Grid -->
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-value">127</div>
+                <div class="metric-label">
+                    <span class="metric-icon">👥</span>ผู้ใช้ Active (ขณะนี้)
+                </div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">856</div>
+                <div class="metric-label">
+                    <span class="metric-icon">🔍</span>การค้นหาวันนี้ (+15%)
+                </div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value status-excellent">99.96%</div>
+                <div class="metric-label">
+                    <span class="metric-icon">�</span>ระบบ Uptime
+                </div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value status-excellent">0.965s</div>
+                <div class="metric-label">
+                    <span class="metric-icon">⚡</span>Response Time
+                </div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">2,341</div>
+                <div class="metric-label">
+                    <span class="metric-icon">�</span>เอกสารที่เข้าถึง
+                </div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">18,547</div>
+                <div class="metric-label">
+                    <span class="metric-icon">�</span>หนังสือที่ค้นพบ
+                </div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value status-excellent">0</div>
+                <div class="metric-label">
+                    <span class="metric-icon">✅</span>แจ้งเตือนความปลอดภัย
+                </div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value status-good">48.45%</div>
+                <div class="metric-label">
+                    <span class="metric-icon">�</span>CPU Usage
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Analytics Chart -->
+        <div class="activity-section">
+            <div class="section-title">📊 Real-time Search Activity Chart</div>
+            <div class="chart-container">
+                <canvas id="searchChart" width="800" height="300"></canvas>
+                <div class="chart-info">
+                    การค้นหาหนังสือในช่วง 1 ชั่วโมงที่ผ่านมา (15:45-16:45)
+                </div>
+            </div>
+        </div>
+
+        <!-- User Authentication Analytics -->
+        <div class="analytics-grid">
+            <div class="analytics-card">
+                <div class="analytics-title">🔐 User Authentication Analytics</div>
+                <div class="stat-row">
+                    <span class="stat-label">วันนี้:</span>
+                    <span class="stat-value">127 active users</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">เมื่อวาน:</span>
+                    <span class="stat-value">124 active users</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">เฉลี่ย:</span>
+                    <span class="stat-value">130 active users</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Peak Time:</span>
+                    <span class="stat-value">14:00-15:00 (89 searches)</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Failed Searches:</span>
+                    <span class="stat-value status-excellent">3 ครั้ง (0.3%)</span>
+                </div>
+            </div>
+
+            <div class="analytics-card">
+                <div class="analytics-title">🚨 Security Alerts</div>
+                <div class="alert-item alert-warning">
+                    <strong>⚠️ Suspicious Search</strong><br>
+                    sirat - 16:45<br>
+                    Pattern: ทดสอบ + ทดสอบ<br>
+                    สถานะ: Normal Usage
+                </div>
+                <div class="alert-item alert-success">
+                    <strong>🟡 High Volume Search</strong><br>
+                    USR002 - 15:30<br>
+                    จาก: 10.0.0.25<br>
+                    สถานะ: ติดตามต่อ
+                </div>
+            </div>
+        </div>
+
+        <!-- Document Search Analytics -->
+        <div class="analytics-grid">
+            <div class="analytics-card">
+                <div class="analytics-title">📄 Document Search Analytics</div>
+                <div class="stat-row">
+                    <span class="stat-label">Total Searches:</span>
+                    <span class="stat-value">856 ครั้ง</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Found Results:</span>
+                    <span class="stat-value">2,341 documents</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">PDF Downloads:</span>
+                    <span class="stat-value">89 ครั้ง</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Quick Views:</span>
+                    <span class="stat-value">156 ครั้ง</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">เปรียบเทียบเมื่อวาน:</span>
+                    <span class="stat-value status-excellent">+15.2%</span>
+                </div>
+            </div>
+
+            <div class="analytics-card">
+                <div class="analytics-title">🏆 Top Search Criteria</div>
+                <div class="module-usage">
+                    <span>Date Range Search</span>
+                    <div class="usage-bar">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 37.9%"></div>
+                        </div>
+                    </div>
+                    <span>37.9%</span>
+                </div>
+                <div class="module-usage">
+                    <span>Subject Search</span>
+                    <div class="usage-bar">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 33.5%"></div>
+                        </div>
+                    </div>
+                    <span>33.5%</span>
+                </div>
+                <div class="module-usage">
+                    <span>Sender Search</span>
+                    <div class="usage-bar">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 28.6%"></div>
+                        </div>
+                    </div>
+                    <span>28.6%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Letter Processing Analytics -->
+        <div class="analytics-grid">
+            <div class="analytics-card">
+                <div class="analytics-title">📋 Letter Processing Analytics</div>
+                <div class="stat-row">
+                    <span class="stat-label">In Process:</span>
+                    <span class="stat-value">47 รายการ</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Completed:</span>
+                    <span class="stat-value status-excellent">89 รายการ</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Failed:</span>
+                    <span class="stat-value status-warning">2 รายการ</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Under Review:</span>
+                    <span class="stat-value">18 รายการ</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Total Today:</span>
+                    <span class="stat-value">164 รายการ (+12.5%)</span>
+                </div>
+            </div>
+
+            <div class="analytics-card">
+                <div class="analytics-title">⏱️ Processing Times</div>
+                <div class="stat-row">
+                    <span class="stat-label">Letter Entry:</span>
+                    <span class="stat-value">เฉลี่ย 1.8 นาที</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Search Query:</span>
+                    <span class="stat-value status-excellent">เฉลี่ย 0.97 วินาที</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Data Retrieval:</span>
+                    <span class="stat-value">เฉลี่ย 2.3 วินาที</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Target SLA:</span>
+                    <span class="stat-value status-excellent">< 5 วินาที (98.9%)</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Slow Queries:</span>
+                    <span class="stat-value status-warning">1 รายการ</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Module Usage Analytics -->
+        <div class="activity-section">
+            <div class="section-title">🏢 Module Usage Analytics</div>
+            <div class="analytics-grid">
+                <div class="analytics-card">
+                    <div class="analytics-title">📊 Usage Overview</div>
+                    <div class="stat-row">
+                        <span class="stat-label">Unique Users:</span>
+                        <span class="stat-value">127 คน</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Total Sessions:</span>
+                        <span class="stat-value">189 sessions</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Avg Duration:</span>
+                        <span class="stat-value">13.2 นาที</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Module Switches:</span>
+                        <span class="stat-value">1,247 ครั้ง</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">เปรียบเทียบเมื่อวาน:</span>
+                        <span class="stat-value status-excellent">+8.3%</span>
+                    </div>
+                </div>
+
+                <div class="analytics-card">
+                    <div class="analytics-title">📈 Module Popularity</div>
+                    <div class="module-usage">
+                        <span>SEARCH_MODULE</span>
+                        <div class="usage-bar">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 82.5%"></div>
+                            </div>
+                        </div>
+                        <span>82.5%</span>
+                    </div>
+                    <div class="module-usage">
+                        <span>ENTRY_MODULE</span>
+                        <div class="usage-bar">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 9.5%"></div>
+                            </div>
+                        </div>
+                        <span>9.5%</span>
+                    </div>
+                    <div class="module-usage">
+                        <span>REPORT_MODULE</span>
+                        <div class="usage-bar">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 4.2%"></div>
+                            </div>
+                        </div>
+                        <span>4.2%</span>
+                    </div>
+                    <div class="module-usage">
+                        <span>APPROVAL_MODULE</span>
+                        <div class="usage-bar">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 2.1%"></div>
+                            </div>
+                        </div>
+                        <span>2.1%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Top Search Users -->
+        <div class="activity-section">
+            <div class="section-title">👥 Top Search Users</div>
+            <div class="analytics-card">
+                <table class="top-users-table">
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Searches</th>
+                            <th>Success Rate</th>
+                            <th>Avg Time</th>
+                            <th>Most Used Criteria</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>sirat</td>
+                            <td>89</td>
+                            <td>98.9%</td>
+                            <td>0.95s</td>
+                            <td>Date Range + Subject</td>
+                        </tr>
+                        <tr>
+                            <td>USR003</td>
+                            <td>67</td>
+                            <td>95.5%</td>
+                            <td>1.2s</td>
+                            <td>Sender Name + Letter Type</td>
+                        </tr>
+                        <tr>
+                            <td>USR005</td>
+                            <td>54</td>
+                            <td>97.2%</td>
+                            <td>1.1s</td>
+                            <td>Book Number + Date Range</td>
+                        </tr>
+                        <tr>
+                            <td>USR007</td>
+                            <td>43</td>
+                            <td>100.0%</td>
+                            <td>0.8s</td>
+                            <td>Subject Text Only</td>
+                        </tr>
+                        <tr>
+                            <td>USR012</td>
+                            <td>38</td>
+                            <td>94.7%</td>
+                            <td>1.8s</td>
+                            <td>Complex Multi-criteria</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Current User Session Info -->
+        <div class="user-info">
+            <h2>� Current User Session</h2>
+            <div class="user-details">
+                <div class="user-detail-item">
+                    <strong>User ID:</strong> sirat<br>
+                    <strong>ชื่อ:</strong> นางสาวศรีรัตน์ โกมลสวัสดิ์
+                </div>
+                <div class="user-detail-item">
+                    <strong>หน่วยงาน:</strong> ฝ่ายสารบรรณ<br>
+                    <strong>ตำแหน่ง:</strong> หัวหน้าฝ่ายสารบรรณ (อาวุโส)
+                </div>
+                <div class="user-detail-item">
+                    <strong>Session ID:</strong> E6A3F57C1E1D3DF53182003476A10999<br>
+                    <strong>IP Address:</strong> 0:0:0:0:0:0:0:1 (Local)
+                </div>
+                <div class="user-detail-item">
+                    <strong>Browser:</strong> Safari 18.5 on macOS<br>
+                    <strong>Access Level:</strong> O3 (Level 2)
+                </div>
+            </div>
+        </div>
+
+        <!-- Detailed Search Activity -->
+        <div class="activity-section">
+            <div class="section-title">� Detailed Search Activity Analysis</div>
+            <div class="search-details">
+                <div class="detail-card">
+                    <h3>📋 Search Criteria</h3>
+                    <div class="detail-item">
+                        <span class="detail-label">ประเภทการลงทะเบียน:</span>
+                        <span class="detail-value">R (ลงทะเบียน)</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">หนังสือ Electronic:</span>
+                        <span class="detail-value">Y (ใช่)</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">ประเภทหนังสือ:</span>
+                        <span class="detail-value">1</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">รหัสสมุด:</span>
+                        <span class="detail-value">16375</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">ปี:</span>
+                        <span class="detail-value">2568</span>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <h3>📅 Date Range & Numbers</h3>
+                    <div class="detail-item">
+                        <span class="detail-label">วันที่เริ่มต้น:</span>
+                        <span class="detail-value">22/07/2568</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">วันที่สิ้นสุด:</span>
+                        <span class="detail-value">23/07/2568</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">เลขที่ลงทะเบียน:</span>
+                        <span class="detail-value">233</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">เลขที่สมุด:</span>
+                        <span class="detail-value">กค0201//111</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">วันที่รับ:</span>
+                        <span class="detail-value">23/07/2568</span>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <h3>📝 Content Information</h3>
+                    <div class="detail-item">
+                        <span class="detail-label">เรื่อง:</span>
+                        <span class="detail-value">ทดสอบ</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">ผู้ส่ง:</span>
+                        <span class="detail-value">ทดสอบ</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Selected Item:</span>
+                        <span class="detail-value">4839b4fe-a99f...</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Items per Page:</span>
+                        <span class="detail-value">10</span>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <h3>⚡ Technical Details</h3>
+                    <div class="detail-item">
+                        <span class="detail-label">Request Method:</span>
+                        <span class="detail-value">POST</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Content Type:</span>
+                        <span class="detail-value">application/x-www-form-urlencoded</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Content Length:</span>
+                        <span class="detail-value">1,055 bytes</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">JSF Event:</span>
+                        <span class="detail-value">valueChange</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Component:</span>
+                        <span class="detail-value">formc:senderNameBy</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity Timeline -->
+        <div class="activity-section">
+            <div class="section-title">� Recent Activity Timeline</div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">16:45:04</div>
+                    <div class="timeline-content">
+                        � Search form interaction - Sender name field changed
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">16:44:58</div>
+                    <div class="timeline-content">
+                        📄 Form data validation completed
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">16:44:55</div>
+                    <div class="timeline-content">
+                        🖱️ Date picker interaction - End date selected
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">16:44:52</div>
+                    <div class="timeline-content">
+                        📝 Text input - Story field updated
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">16:44:48</div>
+                    <div class="timeline-content">
+                        🔢 Number input - Register number entered
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Browser & Device Analytics -->
+        <div class="activity-section">
+            <div class="section-title">📱 Device & Browser Usage</div>
+            <div class="analytics-grid">
+                <div class="analytics-card">
+                    <div class="analytics-title">💻 Operating Systems</div>
+                    <div class="module-usage">
+                        <span>Windows</span>
+                        <div class="usage-bar">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 61.4%"></div>
+                            </div>
+                        </div>
+                        <span>61.4%</span>
+                    </div>
+                    <div class="module-usage">
+                        <span>macOS</span>
+                        <div class="usage-bar">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 25.2%"></div>
+                            </div>
+                        </div>
+                        <span>25.2%</span>
+                    </div>
+                    <div class="module-usage">
+                        <span>iOS</span>
+                        <div class="usage-bar">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 9.4%"></div>
+                            </div>
+                        </div>
+                        <span>9.4%</span>
+                    </div>
+                    <div class="module-usage">
+                        <span>Android</span>
+                        <div class="usage-bar">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 3.9%"></div>
+                            </div>
+                        </div>
+                        <span>3.9%</span>
+                    </div>
+                </div>
+
+                <div class="analytics-card">
+                    <div class="analytics-title">🌐 Browsers</div>
+                    <div class="module-usage">
+                        <span>Chrome</span>
+                        <div class="usage-bar">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 70.1%"></div>
+                            </div>
+                        </div>
+                        <span>70.1%</span>
+                    </div>
+                    <div class="module-usage">
+                        <span>Safari</span>
+                        <div class="usage-bar">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 19.7%"></div>
+                            </div>
+                        </div>
+                        <span>19.7%</span>
+                    </div>
+                    <div class="module-usage">
+                        <span>Firefox</span>
+                        <div class="usage-bar">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 7.9%"></div>
+                            </div>
+                        </div>
+                        <span>7.9%</span>
+                    </div>
+                    <div class="module-usage">
+                        <span>Edge</span>
+                        <div class="usage-bar">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 2.4%"></div>
+                            </div>
+                        </div>
+                        <span>2.4%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample data for chart
+        const searchData = {
+            labels: ['15:45', '16:00', '16:15', '16:30', '16:45'],
+            datasets: [{
+                label: 'การค้นหา',
+                data: [130, 220, 190, 160, 210],
+                borderColor: '#3498db',
+                backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                tension: 0.4,
+                fill: true
+            }]
+        };
+
+        // Create simple ASCII chart in canvas
+        function drawChart() {
+            const canvas = document.getElementById('searchChart');
+            if (canvas) {
+                const ctx = canvas.getContext('2d');
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // Draw grid
+                ctx.strokeStyle = '#ecf0f1';
+                ctx.lineWidth = 1;
+                
+                // Horizontal lines
+                for (let i = 0; i <= 5; i++) {
+                    const y = (canvas.height / 5) * i;
+                    ctx.beginPath();
+                    ctx.moveTo(0, y);
+                    ctx.lineTo(canvas.width, y);
+                    ctx.stroke();
+                }
+                
+                // Vertical lines
+                for (let i = 0; i <= 4; i++) {
+                    const x = (canvas.width / 4) * i;
+                    ctx.beginPath();
+                    ctx.moveTo(x, 0);
+                    ctx.lineTo(x, canvas.height);
+                    ctx.stroke();
+                }
+                
+                // Draw line chart
+                const data = [130, 220, 190, 160, 210];
+                const maxValue = Math.max(...data);
+                ctx.strokeStyle = '#3498db';
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                
+                for (let i = 0; i < data.length; i++) {
+                    const x = (canvas.width / (data.length - 1)) * i;
+                    const y = canvas.height - (data[i] / maxValue) * canvas.height;
+                    
+                    if (i === 0) {
+                        ctx.moveTo(x, y);
+                    } else {
+                        ctx.lineTo(x, y);
+                    }
+                    
+                    // Draw points
+                    ctx.save();
+                    ctx.fillStyle = '#3498db';
+                    ctx.beginPath();
+                    ctx.arc(x, y, 4, 0, 2 * Math.PI);
+                    ctx.fill();
+                    ctx.restore();
+                }
+                ctx.stroke();
+                
+                // Add labels
+                ctx.fillStyle = '#7f8c8d';
+                ctx.font = '12px Arial';
+                ctx.textAlign = 'center';
+                
+                const labels = ['15:45', '16:00', '16:15', '16:30', '16:45'];
+                for (let i = 0; i < labels.length; i++) {
+                    const x = (canvas.width / (labels.length - 1)) * i;
+                    ctx.fillText(labels[i], x, canvas.height + 20);
+                }
+            }
+        }
+
+        // Update timestamp every second
+        function updateTimestamp() {
+            const now = new Date();
+            const thaiDate = now.toLocaleDateString('th-TH', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            const time = now.toLocaleTimeString('th-TH');
+            document.getElementById('current-time').textContent = `${thaiDate}, ${time}`;
+        }
+
+        // Update metrics with slight variations to simulate real-time
+        function updateMetrics() {
+            const metrics = document.querySelectorAll('.metric-value');
+            const variations = [127, 856, '99.96%', '0.965s', 2341, 18547, 0, '48.45%'];
+            
+            // Add small random variations to some metrics
+            variations[0] = 127 + Math.floor(Math.random() * 10) - 5; // Active users ±5
+            variations[1] = 856 + Math.floor(Math.random() * 20) - 10; // Searches ±10
+            variations[4] = 2341 + Math.floor(Math.random() * 50) - 25; // Documents ±25
+            variations[5] = 18547 + Math.floor(Math.random() * 100) - 50; // Letters ±50
+            
+            metrics.forEach((metric, index) => {
+                if (index < variations.length) {
+                    if (typeof variations[index] === 'number') {
+                        metric.textContent = variations[index].toLocaleString();
+                    } else {
+                        metric.textContent = variations[index];
+                    }
+                }
+            });
+        }
+
+        // Animate progress bars
+        function animateProgressBars() {
+            const progressBars = document.querySelectorAll('.progress-fill');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateTimestamp();
+            drawChart();
+            animateProgressBars();
+            
+            setInterval(updateTimestamp, 1000);
+            setInterval(updateMetrics, 5000); // Update metrics every 5 seconds
+            setInterval(() => {
+                drawChart();
+                animateProgressBars();
+            }, 10000); // Update chart every 10 seconds
+        });
+
+        // Add some interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.metric-card, .analytics-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    card.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        card.style.transform = '';
+                    }, 150);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
